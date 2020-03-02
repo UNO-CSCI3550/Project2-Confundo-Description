@@ -275,7 +275,7 @@ We will also accept implementations written in C, however use of C++ is preferre
     <p>The server must open a UDP socket on the specified port number</p>
   </li>
   <li>
-    <p>The server should gracefully process incorrect port number and exit with a non-zero error code (you can assume that the folder is always correct).  In addition to exit, the server must print out on standard error (<code class="highlighter-rouge">std::cerr</code>) an error message that starts with <code class="highlighter-rouge">ERROR:</code> string.</p>
+    <p>The server should gracefully process incorrect port number and exit with a non-zero error code (you must create the folder if it does not exist).  In addition to exit, the server must print out on standard error (<code class="highlighter-rouge">std::cerr</code>) an error message that starts with <code class="highlighter-rouge">ERROR:</code> string.</p>
   </li>
   <li>
     <p>The server should exit with code zero when receiving <code class="highlighter-rouge">SIGQUIT</code>/<code class="highlighter-rouge">SIGTERM</code> signal</p>
