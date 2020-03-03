@@ -378,7 +378,7 @@ We will also accept implementations written in C, however use of C++ is preferre
     </ul>
   </li>
   <li>
-    <p>The client should gracefully process incorrect hostname and port number and exist with a non-zero exit code (you can assume that the specified file is always correct).  In addition to exit, the client must print out on standard error (<code class="highlighter-rouge">std::cerr</code>) an error message that starts with <code class="highlighter-rouge">ERROR:</code> string.</p>
+    <p>The client should gracefully process incorrect hostname and port number and exist with a non-zero exit code.  In addition to exit, the client must print out on standard error (<code class="highlighter-rouge">std::cerr</code>) an error message that starts with <code class="highlighter-rouge">ERROR:</code> string.</p>
   </li>
   <li>
     <p>After file is successfully transferred file (all bytes acknowledged), the client should gracefully terminate the connection</p>
@@ -650,7 +650,7 @@ and so on.</p>
       <li>
         <p>Clone <a href="https://github.com/UNO-CSCI3550/Project-2-Confundo">project template</a></p>
 
-        <div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/UNO-CSCI3550/Project-2-Confundo 
+        <div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/UNO-CSCI3550/Project-2-Confundo
 cd Project-2-Confundo
 </code></pre>
         </div>
@@ -691,7 +691,7 @@ cd Project-2-Confundo
     <li>
   <p>Work on your project</p>
 
-    <p>All files in <code class="highlighter-rouge">Project2-Confundo</code> folder on the host machine will be automatically synchronized with <code class="highlighter-rouge">/vagrant</code> folder on both virtual machines.  For example, to compile your code, you can run the following commands:</p>
+    <p>All files in <code class="highlighter-rouge">Project-2-Confundo</code> folder on the host machine will be automatically synchronized with <code class="highlighter-rouge">/vagrant</code> folder on both virtual machines.  For example, to compile your code, you can run the following commands:</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>  vagrant ssh
   cd /vagrant
