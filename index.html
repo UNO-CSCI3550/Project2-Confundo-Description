@@ -310,19 +310,19 @@ We will also accept implementations written in C, however use of C++ is preferre
        |                                        |                                     |
        |                                        |     seq=12345, ack=0, id=0, SYN     |
        |                                        | &lt;---------------------------------- |
-       |                                        | sec=4321, ack=12346, id=2, SYN, ACK |
+       |                                        | seq=4321, ack=12346, id=2, SYN, ACK |
        |                                        | ----------------------------------&gt; |
        |                                        |                                     |
        |                                        |   seq=12346, ack=4322, id=2, ACK    |
        |                                        | &lt;---------------------------------- |
        |                                        |    (if includes 512-byte payload)   |
        |                                        |                                     |
-       |                                        |   sec=4322, ack=12858, id=2, ACK    |
+       |                                        |   seq=4322, ack=12858, id=2, ACK    |
        |                                        | ----------------------------------&gt; |
        |                                       ...                                   ...
        |                                        |       seq=12858, ack=0, id=2        |
        |                                        | &lt;---------------------------------- |
-       |                                        |   sec=4322, ack=13370, id=2, ACK    |
+       |                                        |   seq=4322, ack=13370, id=2, ACK    |
        |                                        | ----------------------------------&gt; |
        |                                       ...                                   ...
        |                                        |                                     |
