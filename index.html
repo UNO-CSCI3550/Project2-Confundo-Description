@@ -251,7 +251,7 @@ We will also accept implementations written in C, however use of C++ is preferre
 
 <h3 id="server-application-specification">Server Application Specification</h3>
 
-<p>The server application MUST be compiled into <code class="highlighter-rouge">server</code> binary, accepting two command-line arguments:</p>
+<p>The server application MUST be <strong>multi-threaded</strong> and be compiled into the <code class="highlighter-rouge">server</code> binary, accepting two command-line arguments:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ server &lt;PORT&gt; &lt;FILE-DIR&gt;
 </code></pre>
