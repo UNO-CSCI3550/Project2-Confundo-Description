@@ -576,46 +576,46 @@ and so on.</p>
 
 <h3 id="emulating-packet-loss">Emulating packet loss</h3>
 
-<p>If are using the <a href="https://github.com/UNO-CSCI3550/Project-2-Confundo">Vagrantfile provided in project-2 skeleton</a>, you can automatically instantiate two virtual machines that are connected to each other using a private network (<code class="highlighter-rouge">enp0s8</code> interface on each).  You can also run preinstalled <code class="highlighter-rouge">/set-loss.sh</code> script to enable emulation of 10% loss and delay of 20ms in each direction (need to run on each VM separately).</p>
+<p>If are using the <a href="https://github.com/UNO-CSCI3550/Project-2-Confundo">Vagrantfile provided in project-2 skeleton</a>, you can automatically instantiate two virtual machines that are connected to each other using a private network (<code class="highlighter-rouge">eth1</code> interface on each).  You can also run preinstalled <code class="highlighter-rouge">/set-loss.sh</code> script to enable emulation of 10% loss and delay of 20ms in each direction (need to run on each VM separately).</p>
 
 <p>You can use the following commands to adjust parameters of the emulation:</p>
 
 <ul>
   <li>
-    <p>To check the current parameters for the private network (<code class="highlighter-rouge">enp0s8</code>)</p>
+    <p>To check the current parameters for the private network (<code class="highlighter-rouge">eth1</code>)</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc show dev enp0s8
+    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc show dev eth1
 </code></pre>
     </div>
   </li>
   <li>
     <p>To change current parameters to loss rate of 20% and delay 100ms:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc change dev enp0s8 root netem loss 20% delay 100ms
+    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc change dev eth1 root netem loss 20% delay 100ms
 </code></pre>
     </div>
   </li>
   <li>
     <p>To delete the network emulation:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc del dev enp0s8 root
+    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc del dev eth1 root
 </code></pre>
     </div>
   </li>
   <li>
     <p>If network emulation hasn’t yet setup or you have deleted it, you can add it to, e.g., 10% loss without delay emulation:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc add dev enp0s8 root netem loss 10%
+    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc add dev eth1 root netem loss 10%
 </code></pre>
     </div>
   </li>
   <li>
     <p>You can also change network emulation to re-order packets.  The command below makes 4 out of every 5 packets (1-4, 6-9, …) to be delayed by 100ms, while every 5th packet (, 10, 15, …) will be sent immediately:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc change dev enp0s8 root netem reorder 100% gap 5 delay 100ms
+    <div class="highlighter-rouge"><pre class="highlight"><code>  tc qdisc change dev eth1 root netem reorder 100% gap 5 delay 100ms
 
   # or if you're just adding the rule
-  # tc qdisc add dev enp0s8 root netem reorder 100% gap 5 delay 100ms
+  # tc qdisc add dev eth1 root netem reorder 100% gap 5 delay 100ms
 </code></pre>
     </div>
   </li>
@@ -708,7 +708,7 @@ cd Project-2-Confundo
     <p>If you want to open another SSH session, just open another terminal and run <code class="highlighter-rouge">vagrant ssh</code> (or create a new Putty session).</p>
   </li>
   <li>
-    <p>The client and server VMs are connected using the private network <code class="highlighter-rouge">10.0.0.0/24</code> (<code class="highlighter-rouge">enp0s8</code>)</p>
+    <p>The client and server VMs are connected using the private network <code class="highlighter-rouge">10.0.0.0/24</code> (<code class="highlighter-rouge">eth1</code>)</p>
 
     <ul>
       <li>client’s IP address: <code class="highlighter-rouge">10.0.0.2</code></li>
